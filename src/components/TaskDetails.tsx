@@ -1,32 +1,37 @@
+// Импорт типов и компонентов UI
 import { Task, Category, Status, Priority } from "../types";
 import { Button, TextInput, Textarea, Select } from "flowbite-react";
 
+// Интерфейс пропсов компонента
 interface TaskDetailsProps {
-  task: Partial<Task>;
-  isNewTask: boolean;
-  onTaskChange: (updatedTask: Partial<Task>) => void;
-  onSubmit: (e: React.FormEvent) => void;
-  onCancel: () => void;
+  task: Task; // Текущая задача
+  onTaskChange: (updatedTask: Task) => void; // Колбэк при изменении данных
+  onSubmit: (e: React.FormEvent) => void; // Обработчик отправки формы
+  onCancel: () => void; // Обработчик отмены
 }
 
+/**
+ * Компонент формы редактирования задачи
+ * Отображает форму с полями для редактирования всех свойств задачи
+ */
 export default function TaskDetails({
   task,
-  isNewTask,
   onTaskChange,
   onSubmit,
   onCancel,
 }: TaskDetailsProps) {
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* Заголовок формы (меняется в зависимости от режима) */}
       <h1 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
-        {isNewTask ? "Create New Task" : "Edit Task"}
+        Edit Task
       </h1>
 
+      {/* Основная форма редактирования задачи */}
       <form className="flex max-w-md flex-col gap-4" onSubmit={onSubmit}>
+        {/* Поле для ввода названия задачи */}
         <div>
-          <label htmlFor="title" />
-          Title
-          <label />
+          <label htmlFor="title">Title</label>
           <TextInput
             id="title"
             type="text"
@@ -38,10 +43,9 @@ export default function TaskDetails({
           />
         </div>
 
+        {/* Поле для ввода описания задачи */}
         <div>
-          <label htmlFor="description" />
-          Description
-          <label />
+          <label htmlFor="description">Description</label>
           <Textarea
             id="description"
             placeholder="Task description"
@@ -54,10 +58,9 @@ export default function TaskDetails({
           />
         </div>
 
+        {/* Выпадающий список для выбора категории */}
         <div>
-          <label htmlFor="category" />
-          Category
-          <label />
+          <label htmlFor="category">Category</label>
           <Select
             id="category"
             aria-label="select task category"
@@ -75,10 +78,9 @@ export default function TaskDetails({
           </Select>
         </div>
 
+        {/* Выпадающий список для выбора статуса */}
         <div>
-          <label htmlFor="status" />
-          Status
-          <label />
+          <label htmlFor="status">Status</label>
           <Select
             id="status"
             aria-label="select task status"
@@ -94,10 +96,9 @@ export default function TaskDetails({
           </Select>
         </div>
 
+        {/* Выпадающий список для выбора приоритета */}
         <div>
-          <label htmlFor="priority" />
-          Priority
-          <label />
+          <label htmlFor="priority">Priority</label>
           <Select
             id="priority"
             aria-label="select task priority"
@@ -113,6 +114,7 @@ export default function TaskDetails({
           </Select>
         </div>
 
+        {/* Кнопки действий */}
         <div className="flex gap-2">
           <Button
             type="submit"
