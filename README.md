@@ -21,8 +21,8 @@
 ## Установка и запуск
 
 1. **Клонировать репозиторий**
-   git clone https://github.com/AlexL69420/task-manager.git
-   cd task-manager
+- git clone https://github.com/AlexL69420/task-manager.git
+- cd task-manager
 2. **Установить зависимости и запустить**
-   npm install
-   npm run dev
+- npm install
+- npm run dev
