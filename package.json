@@ -13,18 +13,27 @@
     "postinstall": "flowbite-react patch"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
+    "axios": "^1.10.0",
     "flowbite-react": "^0.11.7",
+    "path": "^0.12.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",
     "@tailwindcss/vite": "^4.1.4",
+    "@types/node": "^24.0.14",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.24.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
@@ -34,5 +43,106 @@
     "typescript": "~5.7.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.2.6"
+  },
+  "import/resolver": {
+    "typescript": {},
+    "alias": {
+      "map": [
+        [
+          "@",
+          "./src"
+        ],
+        [
+          "@app",
+          "./src/app"
+        ],
+        [
+          "@entities",
+          "./src/entities"
+        ],
+        [
+          "@features",
+          "./src/features"
+        ],
+        [
+          "@pages",
+          "./src/pages"
+        ],
+        [
+          "@shared",
+          "./src/shared"
+        ],
+        [
+          "@App",
+          "./src/app/App.tsx"
+        ],
+        [
+          "@main",
+          "./src/app/main.tsx"
+        ],
+        [
+          "@ErrorState",
+          "./src/entities/ErrorState.tsx"
+        ],
+        [
+          "@taskApi",
+          "./src/features/api/taskApi.ts"
+        ],
+        [
+          "@TaskEmptyState",
+          "./src/features/components/TaskEmptyState.tsx"
+        ],
+        [
+          "@TaskFilters",
+          "./src/features/components/TaskFilters.tsx"
+        ],
+        [
+          "@TaskItem",
+          "./src/features/components/TaskItem.tsx"
+        ],
+        [
+          "@TaskList",
+          "./src/features/components/TaskList.tsx"
+        ],
+        [
+          "@TaskSorting",
+          "./src/features/components/TaskSorting.tsx"
+        ],
+        [
+          "@useTasks",
+          "./src/features/hooks/useTasks.ts"
+        ],
+        [
+          "@sortTasks",
+          "./src/features/lib/sortTasks.ts"
+        ],
+        [
+          "@taskStore",
+          "./src/features/model/store/taskStore.ts"
+        ],
+        [
+          "@indexStore",
+          "src/features/model/store"
+        ],
+        [
+          "@taskTypes",
+          "./src/features/model/types.ts"
+        ],
+        [
+          "@NotFoundPage",
+          "./src/pages/NotFoundPage.tsx"
+        ],
+        [
+          "@TaskForm",
+          "./src/pages/TaskForm.tsx"
+        ]
+      ],
+      "extensions": [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".jsx"
+      ]
+    }
   }
 }

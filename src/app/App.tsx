@@ -1,9 +1,10 @@
 // Импорт компонентов и зависимостей
-import { TaskList } from "../components/TaskList";
-import { Button } from "flowbite-react";
+import { TaskList } from "@TaskList";
+import { Button, DarkThemeToggle } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 
 /**
- * Главный компонент приложения - Task Manager
+ * Главный компонент приложения
  * Содержит:
  * - Заголовок приложения
  * - Кнопку создания новой задачи
@@ -14,25 +15,29 @@ export default function App() {
    * Обработчик клика по кнопке добавления задачи
    * Перенаправляет на страницу создания новой задачи
    */
+  const navigate = useNavigate();
   const handleAddNewTask = () => {
-    console.log("new task added"); // Тут будет переход на страницу создания задачи
+    navigate("/task/new");
   };
 
   return (
     // Основной контейнер приложения с адаптивными отступами
-    <main className="container mx-auto px-4 py-8">
+    <main className="container mx-auto min-h-screen min-w-screen px-4 py-8 dark:bg-slate-700">
       {/* Шапка приложения с заголовком и кнопкой */}
-      <div className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center sm:gap-0">
+      <div className="mb-6 flex flex-col items-start justify-around gap-4 sm:flex-row sm:items-center sm:gap-0">
         {/* Заголовок приложения с поддержкой темной темы */}
-        <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
-          Task Manager
-        </h1>
+        <div className="flex flex-row items-center gap-3">
+          <DarkThemeToggle className="rounded-full border-2 hover:cursor-pointer dark:bg-slate-800" />
+          <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
+            Task Manager
+          </h1>
+        </div>
 
         {/* Кнопка добавления новой задачи */}
         <Button
           onClick={handleAddNewTask}
           aria-label="Add new task"
-          className="w-full hover:cursor-pointer sm:w-auto"
+          className="w-full hover:cursor-pointer sm:w-auto dark:text-white"
           // Цвет кнопки из палитры Flowbite
           color="success"
         >
