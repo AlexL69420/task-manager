@@ -1,5 +1,6 @@
 import pkg from 'pg';
 
+// Импорт базы данных postgres
 const {Pool} = pkg;
 const pool = new Pool({
     user: 'postgres',

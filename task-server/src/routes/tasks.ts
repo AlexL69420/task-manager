@@ -1,10 +1,11 @@
 import { Router } from "express";
-import pool from "../utils/data.mjs";
+import pool from "../utils/data.js";
 
-const router = Router();
+// Роутер для управления задачами
+const tasksRouter = Router();
 
 // Получить все активные задачи 
-router.get('/', async (req, res) => {
+tasksRouter.get('/', async (req, res) => {
   const { limit = 100, offset = 0 } = req.query;
 
   try {
@@ -23,7 +24,7 @@ router.get('/', async (req, res) => {
 });
 
 // Создать новую задачу
-router.post('/', async (req, res) => {
+tasksRouter.post('/', async (req, res) => {
   const { title, description, category, status, priority } = req.body;
   try {
     const result = await pool.query(
@@ -38,7 +39,7 @@ router.post('/', async (req, res) => {
 });
 
 // Получить задачу по ID
-router.get('/:id', async (req, res) => {
+tasksRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -59,7 +60,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Обновить задачу
-router.put('/:id', async (req, res) => {
+tasksRouter.put('/:id', async (req, res) => {
   const { id }
    = req.params;
   const { title, description, category, status, priority } = req.body;
@@ -82,7 +83,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Удалить задачу
-router.delete('/:id', async (req, res) => {
+tasksRouter.delete('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -102,4 +103,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-export default router;
+export default tasksRouter;
